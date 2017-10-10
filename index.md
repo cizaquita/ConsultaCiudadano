@@ -1,10 +1,37 @@
-## Welcome to GitHub Pages
+## Bienvenido
 
-You can use the [editor on GitHub](https://github.com/cizaquita1/ConsultaCiudadano/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Éste software es desarrollado por:
+- Syndi Lorena Gutierrez Pérez
+- Cristian Iván Izaquita Morales
+- Andrés Ramiro Villegas Oyola
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Desarrollado par el Docente __Carlos Andrés López Ospina.__
 
-### Markdown
+
+Por el momento el repositorio es privado hasta que decidamos liberarlo, todo para evitar mal entendidos o copia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+## 
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
