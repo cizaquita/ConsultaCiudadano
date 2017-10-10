@@ -13,25 +13,29 @@ Por el momento el repositorio es privado hasta que decidamos liberarlo, todo par
 ## Instalación de ambiente de desarrollo para el proyecto.
 - El proyecto está pensado para desarrollarse en python con el framework Django para entorno web que sirve también para dar solución al requerimiento de una API Rest y utilizando un motor de bases de datos como MySQL (MariaDB). 
 - Primero se instalará el motor de base de datos MySQL, luego python, con este django y las dependencias necesarias.
--- Éste tutorial de instalación se desarrolló para el sistema operativo windows.
+* Éste tutorial de instalación se desarrolló para el sistema operativo windows.
 
 ### Instalación de MySQL
 - Descargar e instalar WAMP Server [wampserver.com](http://www.wampserver.com/en/) para el uilizar el motor de base de datos MySQL y su administrador del motor PHPMySQL.
 
 ### Instalación de python
 - Descargar e instalar última version de [python, actualmente 3.6.3](https://www.python.org/downloads/)
- -- Seleccionar la opción para añadir python a variables de entorno del sistema "System PATH"
-- Una vez instalado abrir la ventana de comandos "cmd" y escribir 'python --version' para verificar que la instalación ha sido exitosa debe aparecer la versión de python instalada.
+- Seleccionar la opción para añadir python a variables de entorno del sistema `System PATH`
+- Una vez instalado abrir la ventana de comandos `cmd` y escribir `python --version` para verificar que la instalación ha sido exitosa debe aparecer la versión de python instalada.
 
 ### Instalación de Framework Django
-- En la ventana de comandos "cmd" escribir 'pip install django' lo cuál instalará la última versión del mismo.
+- En la ventana de comandos `cmd` escribir `pip install django` lo cuál instalará la última versión del mismo.
 - Si ocurre algún error de permisos, ejecute la ventana de comandos como administrador.
+- Verificar la instalacion escribiendo `python -m django --version`
 
 
+# Iniciando el proyecto.
+- Seguir la siguiente guia para [configurar django.](https://docs.djangoproject.com/es/1.11/intro/tutorial01/#creating-a-project)
 
-
-
-
+# Clonando y desplegando el proyecto localmente.
+- Debe tener instalado Git, puede descargarlo aca. [Git Downloads](https://git-scm.com/downloads)
+- Luego de las confiuraciones iniciales, debe descargar el repositorio.
+- `git clone https://github.com/cizaquita1/ConsultaCiudadano`
 
 
 
