@@ -5,13 +5,27 @@
 - Cristian Iván Izaquita Morales
 - Andrés Ramiro Villegas Oyola
 
-Desarrollado par el Docente __Carlos Andrés López Ospina.__
+Desarrollado para el Docente _Carlos Andrés López Ospina._
 
 
 Por el momento el repositorio es privado hasta que decidamos liberarlo, todo para evitar mal entendidos o copia.
 
+## Instalación de ambiente de desarrollo para el proyecto.
+- El proyecto está pensado para desarrollarse en python con el framework Django para entorno web que sirve también para dar solución al requerimiento de una API Rest y utilizando un motor de bases de datos como MySQL (MariaDB). 
+- Primero se instalará el motor de base de datos MySQL, luego python, con este django y las dependencias necesarias.
+-- Éste tutorial de instalación se desarrolló para el sistema operativo windows.
 
+### Instalación de MySQL
+- Descargar e instalar WAMP Server [wampserver.com](http://www.wampserver.com/en/) para el uilizar el motor de base de datos MySQL y su administrador del motor PHPMySQL.
 
+### Instalación de python
+- Descargar e instalar última version de [python, actualmente 3.6.3](https://www.python.org/downloads/)
+ -- Seleccionar la opción para añadir python a variables de entorno del sistema "System PATH"
+- Una vez instalado abrir la ventana de comandos "cmd" y escribir 'python --version' para verificar que la instalación ha sido exitosa debe aparecer la versión de python instalada.
+
+### Instalación de Framework Django
+- En la ventana de comandos "cmd" escribir 'pip install django' lo cuál instalará la última versión del mismo.
+- Si ocurre algún error de permisos, ejecute la ventana de comandos como administrador.
 
 
 
