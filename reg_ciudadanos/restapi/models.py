@@ -40,12 +40,12 @@ class Ciudadano(models.Model):
 
 	nombres = models.CharField(max_length=200)
 	apellidos = models.CharField(max_length=200)
-	tipo_identficacion = models.ForeignKey(Identificacion, on_delete=models.CASCADE)
+	tipo_identificacion = models.ForeignKey(Identificacion, on_delete=models.CASCADE)
 	identificacion = models.CharField(max_length=200)
-	fecha_nacimiento = models.DateTimeField('Fecha de nacimiento')
+	fecha_nacimiento = models.DateField('Fecha de nacimiento')
 	# References to ciudad
 	lugar_nacimiento = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name='lugar_nacimiento')
-	fecha_expedicion = models.DateTimeField('Fecha de expedicion')
+	fecha_expedicion = models.DateField('Fecha de expedicion')
 	# References to ciudad
 	lugar_expedicion = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name='lugar_expedicion')
 	rh = models.CharField(max_length=3, choices=TIPOS_RH)

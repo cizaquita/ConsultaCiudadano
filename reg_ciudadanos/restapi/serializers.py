@@ -22,5 +22,5 @@ class IdentificacionSerializer(serializers.HyperlinkedModelSerializer):
 
 class CiudadanoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Departamento
-        fields = ('nombres', 'apellidos', 'tipo_identificaion', 'identificacion', 'fecha_nacimiento', 'lugar_nacimiento', 'fecha_expedicion', 'lugar_expedicion', 'rh', 'grupo_sanguineo', 'estatura', 'fecha_registro', 'requerido')
+        model = Ciudadano
+        fields = ('id','nombres', 'apellidos', 'tipo_identificacion', 'identificacion', 'fecha_nacimiento', 'lugar_nacimiento', 'fecha_expedicion', 'lugar_expedicion', 'rh', 'grupo_sanguineo', 'estatura', 'fecha_registro', 'requerido')

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from restapi import views
 from restapi.views import *
 from rest_framework import routers
 
@@ -28,6 +29,8 @@ router.register(r'ciudadano', CiudadanoViewSet)
 
 
 urlpatterns = [
+	url(r'^$', views.index, name='index'),
+	url(r'^detalle/(?P<ciudadano_id>[0-9]+)/$', views.ciudadano_detail, name='ciudadano_detail'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
