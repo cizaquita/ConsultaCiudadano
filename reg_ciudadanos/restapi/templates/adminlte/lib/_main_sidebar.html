@@ -1,0 +1,29 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+
+{% block nav_links %}
+    <li>
+        <a href="/">
+            <i class="fa fa-user"></i> <span>Ciudadanos</span>
+        </a>
+    </li>
+    <li>
+        <a href="/?requerido=1">
+            <i class="fa fa-bell"></i> <span>Ciudadanos Requeridos</span>
+        </a>
+    </li>
+    <li>
+        <a href="/?requerido=0">
+            <i class="fa fa-bell-o"></i> <span>Ciudadanos No Requeridos</span>
+        </a>        
+    </li>
+    <li>
+        <a href="/api/ciudadano/">
+            <i class="fa fa-hand-spock-o"></i> <span>Rest API</span>
+        </a>        
+    </li>
+    <li>
+        <a href="/admin/">
+            <i class="fa fa-sign-in"></i> <span>Admin Login</span>
+        </a>        
+    </li>
+{% endblock nav_links %}
