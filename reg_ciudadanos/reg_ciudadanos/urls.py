@@ -30,6 +30,7 @@ router.register(r'ciudadano', CiudadanoViewSet)
 
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
+	url(r'^generar_pdf/$', views.generar_pdf, name='generar_pdf'),
 	url(r'^detalle/(?P<ciudadano_id>[0-9]+)/$', views.ciudadano_detail, name='ciudadano_detail'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
