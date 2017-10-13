@@ -16,7 +16,7 @@ Por el momento el repositorio es privado hasta que decidamos liberarlo, todo par
 * Éste tutorial de instalación se desarrolló para el sistema operativo windows.
 
 ### Instalación de MySQL
-- Descargar e instalar WAMP Server [wampserver.com](http://www.wampserver.com/en/) para el uilizar el motor de base de datos MySQL y su administrador del motor PHPMySQL.
+- Descargar e instalar WAMP Server [wampserver.com](http://www.wampserver.com/en/) para utilizar el motor de base de datos MySQL y su administrador del motor PHPMySQL.
 
 ### Instalación de python
 - Descargar e instalar última version de [python, actualmente 3.6.3](https://www.python.org/downloads/)
@@ -29,15 +29,20 @@ Por el momento el repositorio es privado hasta que decidamos liberarlo, todo par
 - Verificar la instalacion escribiendo `python -m django --version`
 
 
-# Iniciando el proyecto.
-- Seguir la siguiente guia para [configurar django.](https://docs.djangoproject.com/es/1.11/intro/tutorial01/#creating-a-project)
-
 # Clonando y desplegando el proyecto localmente.
 - Debe tener instalado Git, puede descargarlo aca. [Git Downloads](https://git-scm.com/downloads)
-- Luego de las confiuraciones iniciales, debe descargar el repositorio.
-- `git clone https://github.com/cizaquita1/ConsultaCiudadano`
+- Luego de las configuraciones iniciales, debe descargar el repositorio.
+- `git clone https://github.com/cizaquita1/ConsultaCiudadano.git`
 
-
+# Iniciando el proyecto localmente.
+- Ir a la carpeta `reg_ciudadanos` y ejecutar por `cmd` el comando `pip install -R requerimientos.txt` verificar la existencia del archivo `requerimientos.txt`
+- Renombrar el archivo `reg_ciudadanos/reg_ciudadanos/settings.py.dist` a `settings.py`
+- Abrir el archivo `settings.py` y modificar la seccion `DATABASES` con el `NAME`, `USER`, `PASSWORD`... correctos para acceder a su base de datos MySQL.
+- En la carpeta `reg_ciudadano` abrir el `cmd` y ejecutar `python manage.py migrate` (Verificar la existencia del archivo manage.py)... Esto hara que se haga una migracion del modelo creado en python a la base de datos que han configurado. Es decir creara las tablas y relaciones de acuerdo al modelo.
+- Ejecutar en el cmd `python manage.py createsuperuser` y seguir las instrucciones. Con este usuario logueara en el panel administrativo.
+- Un vez hecha la migracion puede ejecutar `python manage.py runserver` le mostrara el siguiente mensaje si todo es correcto:
+- ![Imagen](https://i.imgur.com/rc4RGR4.png) 
+- Ahora deberia poder ver la aplicacion en su navegador en [127.0.0.1:8000](http://127.0.0.1:8000)
 
 
 
