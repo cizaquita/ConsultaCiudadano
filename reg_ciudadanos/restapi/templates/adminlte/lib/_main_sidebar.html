@@ -1,29 +1,105 @@
-{% extends 'adminlte/lib/_main_sidebar.html' %}
+{% load adminlte_helpers %}
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        {% if request.user.is_authenticated %}
+        {% block user_panel %}
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{% avatar_url size=90 %}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>{% firstof request.user.get_full_name request.user.username %}</p>
+            </div>
+        </div>
+        {% endblock %}
+        {% endif %}
 
-{% block nav_links %}
-    <li>
-        <a href="/">
-            <i class="fa fa-user"></i> <span>Ciudadanos</span>
-        </a>
-    </li>
-    <li>
-        <a href="/?requerido=1">
-            <i class="fa fa-bell"></i> <span>Ciudadanos Requeridos</span>
-        </a>
-    </li>
-    <li>
-        <a href="/?requerido=0">
-            <i class="fa fa-bell-o"></i> <span>Ciudadanos No Requeridos</span>
-        </a>        
-    </li>
-    <li>
-        <a href="/api/ciudadano/">
-            <i class="fa fa-hand-spock-o"></i> <span>Rest API</span>
-        </a>        
-    </li>
-    <li>
-        <a href="/admin/">
-            <i class="fa fa-sign-in"></i> <span>Admin Login</span>
-        </a>        
-    </li>
-{% endblock nav_links %}
+        {% block form %}{% endblock %}
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        {% block nav_links_ul %}
+        <ul class="sidebar-menu">
+            {% block nav_links_outer %}
+            <li class="header">{% block nav_heading %}REGISTRO CIDUADANOS{% endblock %}</li>
+
+            {% block nav_links %}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-group"></i> <span>Ciudadanos</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/">
+                                <i class="fa fa-user"></i> <span>Lista de Ciudadanos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/?requerido=1">
+                                <i class="fa fa-bell"></i> <span>Ciudadanos Requeridos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/?requerido=0">
+                                <i class="fa fa-bell-o"></i> <span>Ciudadanos No Requeridos</span>
+                            </a>        
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-hand-spock-o"></i> <span>API</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/api/ciudadano/?format=api" target="_blank">
+                                <i class="fa fa-hand-spock-o"></i> <span>Rest API - API</span>
+                            </a>        
+                        </li>
+                        <li>
+                            <a href="/api/ciudadano/?format=json" target="_blank">
+                                <i class="fa fa-hand-spock-o"></i> <span>Rest API - JSON</span>
+                            </a>        
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-group"></i> <span>Admin</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a href="/admin/logout" target="_blank">
+                                <i class="fa fa-sign-out"></i> <span>Salir</span>
+                            </a> 
+                        </li>
+                        {% else%}
+                        <li>
+                            <a href="/admin/restapi" target="_blank">
+                                <i class="fa fa-sign-in"></i> <span>Panel administrativo</span>
+                            </a>       
+                        </li>
+                        {% endif %}
+                    </ul>
+                </li>
+            {% endblock nav_links %}
+            {% endblock nav_links_outer %}
+        </ul>
+        {% endblock nav_links_ul %}
+    </section>
+    <!-- /.sidebar -->
+</aside>

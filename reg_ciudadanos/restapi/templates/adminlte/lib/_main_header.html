@@ -1,0 +1,85 @@
+{% load adminlte_helpers i18n %}
+<header class="main-header">
+    <!-- Logo -->
+    {% block logo %}
+    <a href="{% block logo_href %}/{% endblock %}" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">{% block logo_text_small %}<b>R</b>C{% endblock %}</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">{% block logo_text %}<b>Registro</b>Ciudadanos{% endblock %}</span>
+    </a>
+    {% endblock %}
+
+    <!-- Header Navbar: style can be found in header.less -->
+    {% block nav_bar %}
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+
+        {% block nav_bar_center %}{% endblock %}
+
+        {% block nav_custom_menu %}
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                {% block header_dropdowns %}
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{% avatar_url size=50 %}" class="user-image" alt="User Image">
+                            {% if request.user.is_authenticated %}
+                            <span class="hidden-xs">{% firstof request.user.get_short_name request.user.get_username %}</span>
+                            {% else %}
+                            <span class="hidden-xs">Invitado</span>
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% block user_header %}
+                            <li class="user-header">
+                                <img src="{% avatar_url size=180 %}" class="img-circle" alt="User Image">
+                                {% if request.user.is_authenticated %}
+                                <p>
+                                    {% firstof request.user.get_short_name request.user.get_username %}
+                                    <small>Miembro desde {{ request.user.date_joined }}</small>
+                                </p>
+                                {% else %}
+                                <p>
+                                    Invitado
+                                    <small>{% now "jS F Y H:i" %}</small>
+                                </p>
+                                {% endif %}
+                            </li>
+                            {% endblock %}
+
+                            <!-- Menu Footer-->
+                            {% block menu_footer %}
+                            <li class="user-footer">
+                                {% if request.user.is_authenticated %}
+                                <div class="pull-left">
+                                    <a href="{% block change_password_url %}{% url 'admin:password_change' %}{% endblock %}"
+                                       class="btn btn-default btn-flat">{% trans 'Cambiar contraseña' %}</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{% block logout_url %}{% url 'admin:logout' %}{% endblock %}" class="btn btn-default btn-flat">Salir</a>
+                                </div>
+                                {% else %}
+                                <div class="pull-left">
+                                    <a href="{% block login_url %}{% url 'admin:login' %}{% endblock %}"
+                                       class="btn btn-default btn-flat">Iniciar Sesion</a>
+                                </div>
+                                {% endif %}
+                            </li>
+                            {% endblock %}
+
+                        </ul>
+                    </li>
+                {% endblock header_dropdowns %}
+            </ul>
+        </div>
+        {% endblock nav_custom_menu %}
+    </nav>
+    {% endblock %}
+</header>
