@@ -81,10 +81,10 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        {% if request.user.is_authenticated %}
+                        {% if not request.user.is_authenticated %}
                         <li>
-                            <a href="/admin/logout" target="_blank">
-                                <i class="fa fa-sign-out"></i> <span>Salir</span>
+                            <a href="/admin/restapi" target="_blank">
+                                <i class="fa fa-sign-in"></i> <span>Ingresar</span>
                             </a> 
                         </li>
                         {% else%}
@@ -92,6 +92,11 @@
                             <a href="/admin/restapi" target="_blank">
                                 <i class="fa fa-sign-in"></i> <span>Panel administrativo</span>
                             </a>       
+                        </li>
+                        <li>
+                            <a href="/admin/logout" target="_blank">
+                                <i class="fa fa-sign-out"></i> <span>Salir</span>
+                            </a> 
                         </li>
                         {% endif %}
                     </ul>
