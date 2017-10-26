@@ -115,6 +115,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Email Settings
+
+# python -m smtpd -n -c DebuggingServer localhost:1025
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 1025
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'otaviosantosx@gmail.com'
+EMAIL_HOST_PASSWORD = '!q1w2e3A-'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+#EMAIL_FILE_PATH = 'tmp/email-messages/'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

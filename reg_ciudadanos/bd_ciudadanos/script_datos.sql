@@ -1,3 +1,37 @@
+BEGIN;
+--
+-- Create model Ciudad
+--
+CREATE TABLE `restapi_ciudad` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nombre` varchar(200) NOT NULL);
+--
+-- Create model Ciudadano
+--
+CREATE TABLE `restapi_ciudadano` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nombres` varchar(200) NOT NULL, `apellidos` varchar(200) NOT NULL, `identificacion` varchar(200) NOT NULL, `fecha_nacimiento` datetime(6) NOT NULL, `fecha_expedicion` datetime(6) NOT NULL, `rh` varchar(1) NOT NULL, `grupo_sanguineo` varchar(1) NOT NULL, `estatura` double precision NOT NULL, `fecha_registro` datetime(6) NOT NULL, `requerido` bool NOT NULL, `lugar_expedicion_id` integer NOT NULL, `lugar_nacimiento_id` integer NOT NULL);
+--
+-- Create model Departamento
+--
+CREATE TABLE `restapi_departamento` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nombre` varchar(200) NOT NULL);
+--
+-- Create model Identificacion
+--
+CREATE TABLE `restapi_identificacion` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nombre` varchar(200) NOT NULL);
+--
+-- Add field tipo_identficacion to ciudadano
+--
+ALTER TABLE `restapi_ciudadano` ADD COLUMN `tipo_identficacion_id` integer NOT NULL;
+--
+-- Add field departamento to ciudad
+--
+ALTER TABLE `restapi_ciudad` ADD COLUMN `departamento_id` integer NOT NULL;
+ALTER TABLE `restapi_ciudadano` ADD CONSTRAINT `restapi_ciudadano_lugar_expedicion_id_38ca6546_fk_restapi_c` FOREIGN KEY (`lugar_expedicion_id`) REFERENCES `restapi_ciudad` (`id`);
+ALTER TABLE `restapi_ciudadano` ADD CONSTRAINT `restapi_ciudadano_lugar_nacimiento_id_7704c352_fk_restapi_c` FOREIGN KEY (`lugar_nacimiento_id`) REFERENCES `restapi_ciudad` (`id`);
+CREATE INDEX `restapi_ciudadano_lugar_expedicion_id_38ca6546` ON `restapi_ciudadano` (`lugar_expedicion_id`);
+CREATE INDEX `restapi_ciudadano_lugar_nacimiento_id_7704c352` ON `restapi_ciudadano` (`lugar_nacimiento_id`);
+CREATE INDEX `restapi_ciudadano_tipo_identficacion_id_383488e6` ON `restapi_ciudadano` (`tipo_identficacion_id`);
+ALTER TABLE `restapi_ciudadano` ADD CONSTRAINT `restapi_ciudadano_tipo_identficacion_i_383488e6_fk_restapi_i` FOREIGN KEY (`tipo_identficacion_id`) REFERENCES `restapi_identificacion` (`id`);
+CREATE INDEX `restapi_ciudad_departamento_id_abb1bd0b` ON `restapi_ciudad` (`departamento_id`);
+ALTER TABLE `restapi_ciudad` ADD CONSTRAINT `restapi_ciudad_departamento_id_abb1bd0b_fk_restapi_d` FOREIGN KEY (`departamento_id`) REFERENCES `restapi_departamento` (`id`);
+COMMIT;
 
 --
 -- Inserciones para departamentos
