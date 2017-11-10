@@ -33,7 +33,7 @@
                             {% if request.user.is_authenticated %}
                             <span class="hidden-xs">{% firstof request.user.get_short_name request.user.get_username %}</span>
                             {% else %}
-                            <span class="hidden-xs">Invitado</span>
+                            <span class="hidden-xs">{% trans 'Invitado'%}</span>
                             {% endif %}
                         </a>
                         <ul class="dropdown-menu">
@@ -47,8 +47,8 @@
                                 </p>
                                 {% else %}
                                 <p>
-                                    Invitado
-                                    <small>{% now "jS F Y H:i" %}</small>
+                                    {% trans 'Invitado'%}
+                                    <small>{% now "F j, Y - H:i" %}</small>
                                 </p>
                                 {% endif %}
                             </li>
@@ -68,7 +68,7 @@
                                 {% else %}
                                 <div class="pull-left">
                                     <a href="{% block login_url %}{% url 'admin:login' %}{% endblock %}"
-                                       class="btn btn-default btn-flat">Iniciar Sesion</a>
+                                       class="btn btn-default btn-flat">{% trans 'Iniciar Sesion' %}</a>
                                 </div>
                                 {% endif %}
                             </li>

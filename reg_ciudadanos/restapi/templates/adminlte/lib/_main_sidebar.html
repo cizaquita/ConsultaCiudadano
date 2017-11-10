@@ -26,6 +26,7 @@
             <li class="header">{% block nav_heading %}REGISTRO CIDUADANOS{% endblock %}</li>
 
             {% block nav_links %}
+                {% if request.user.is_authenticated %}
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-group"></i> <span>Ciudadanos</span>
@@ -81,13 +82,6 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        {% if not request.user.is_authenticated %}
-                        <li>
-                            <a href="/admin/restapi" target="_blank">
-                                <i class="fa fa-sign-in"></i> <span>Ingresar</span>
-                            </a> 
-                        </li>
-                        {% else%}
                         <li>
                             <a href="/admin/restapi" target="_blank">
                                 <i class="fa fa-sign-in"></i> <span>Panel administrativo</span>
@@ -98,9 +92,10 @@
                                 <i class="fa fa-sign-out"></i> <span>Salir</span>
                             </a> 
                         </li>
-                        {% endif %}
                     </ul>
                 </li>
+            
+            {% endif %}
             {% endblock nav_links %}
             {% endblock nav_links_outer %}
         </ul>

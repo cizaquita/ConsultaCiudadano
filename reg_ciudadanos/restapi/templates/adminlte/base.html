@@ -1,4 +1,4 @@
-{% load static %}<!DOCTYPE html>
+{% load i18n static %}{% load static %}<!DOCTYPE html>
 <html>
 <head>
     {% block title_outer %}
@@ -32,42 +32,49 @@
         {% block nav_sidebar %}
             {% include 'adminlte/lib/_main_sidebar.html' %}
         {% endblock %}
+            {% block content_wrapper %}
+            <div class="content-wrapper">  
+                {% block content_header %}
 
-        {% block content_wrapper %}
-        <div class="content-wrapper">
-            {% block content_header %}
-                <section class="content-header">
-                    <h1>
-                        {% block page_name %}{% endblock %}
-                        {% block no_description %}
-                        <small>{% block page_description %}{% endblock %}</small>
+                    <section class="content-header">
+                        <h1>
+                            {% block page_name %}{% endblock %}
+                            {% block no_description %}
+                            <small>{% block page_description %}{% endblock %}</small>
+                            {% endblock %}
+                        </h1>
+                        {% block breadcrumbs %}
+                            {# Breadcrumb implementation left to developers #}
                         {% endblock %}
-                    </h1>
-                    {% block breadcrumbs %}
-                        {# Breadcrumb implementation left to developers #}
-                        hola k paza calabaza
+                    </section>
+
+                {% endblock %}
+
+                {% block content_outer %}
+                <section class="content">
+
+                    {% if request.user.is_authenticated %}
+                    {% block messages %}
+                        {% include 'adminlte/lib/_messages.html' %}
                     {% endblock %}
+
+
+                    {% block content_block_wrap %}
+                        {% block content %}{% endblock %}
+                    {% endblock %}
+                    {% else %}
+                        <p>{% trans "Para visualizar el contenido de ésta página debe ingresar en el siguiente link:" %} <a href="{% block login_url %}{% url 'admin:login' %}{% endblock %}" class="btn btn-default btn-flat">{% trans 'Iniciar Sesión' %}</a></p>
+                    {% endif %}
                 </section>
-            {% endblock %}
-
-            {% block content_outer %}
-            <section class="content">
-                {% block messages %}
-                    {% include 'adminlte/lib/_messages.html' %}
                 {% endblock %}
 
-                {% block content_block_wrap %}
-                    {% block content %}{% endblock %}
-                {% endblock %}
-            </section>
+            </div>
+
+            {% endblock content_wrapper %}
+
+            {% block nav_footer %}
+                {% include 'adminlte/lib/_main_footer.html' %}
             {% endblock %}
-
-        </div>
-        {% endblock content_wrapper %}
-
-        {% block nav_footer %}
-            {% include 'adminlte/lib/_main_footer.html' %}
-        {% endblock %}
 
     </div>
 {% endblock body %}
