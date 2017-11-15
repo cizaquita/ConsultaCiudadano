@@ -1,9 +1,16 @@
-{% extends 'adminlte/base.html' %}
+{% extends 'adminlte/base.html' %}{% load i18n static %}
 
 {% block title %}Registro Ciudadanos{% endblock %}
 {% block content %}
 	<!-- /.box-header -->
 	<div class="box-body">
+		{% block titulo_lista %}
+		<div class="text-center">
+			<h1 class="text-center">{% trans "Ciudadanos" %}</h1>
+			<a href="/admin/restapi/ciudadano/add/" class="btn btn-default btn-flat">{% trans 'Crear Ciudadano' %}</a>
+			<hr>
+		</div>
+		{% endblock %}
 	  <div class="table-responsive">
 	    <table class="table no-margin">
 	      <thead>
