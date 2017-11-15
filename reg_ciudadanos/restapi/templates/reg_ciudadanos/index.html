@@ -8,7 +8,7 @@
 	    <table class="table no-margin">
 	      <thead>
 	      <tr>
-	        <th>ID</th>
+	        <!--th>ID</th-->
 	        <th>Nombres</th>
 	        <th>Tipo de Identificacion</th>
 	        <th>Identificacion</th>
@@ -19,7 +19,7 @@
 	      {% for ciudadano in lista_ciudadanos %}
 	        <tr data-sid="{{ ciudadano.id }}" data-id="{{ ciudadano.id }}" data-date="{{ ciudadano.fecha_registro.isoformat }}">
 
-	        <td><a href="/detalle/{{ ciudadano.id }}">{{ ciudadano.id }}</a></td>
+	        <!--td><a href="/detalle/{{ ciudadano.id }}">{{ ciudadano.id }}</a></td-->
 	        <td>{{ ciudadano.nombres }} {{ ciudadano.apellidos }}</td>
 	        <td>  {{ ciudadano.tipo_identificacion.nombre }}</td>
 	        <td>{{ ciudadano.identificacion }}</td>
