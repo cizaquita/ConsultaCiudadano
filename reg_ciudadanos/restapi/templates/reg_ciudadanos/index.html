@@ -13,6 +13,8 @@
 	        <th>Tipo de Identificacion</th>
 	        <th>Identificacion</th>
 	        <th>Estado</th>
+	        <th>Editar</th>
+	        <th>Eliminar</th>
 	      </tr>
 	      </thead>
 	      <tbody>
@@ -30,6 +32,8 @@
 	          <span class="label label-success order-status">No Requerido</span>
 	          {% endif %}
 	        </td>
+	        <td><a href="/admin/restapi/ciudadano/{{ ciudadano.id }}"><i class="fa fa-pencil-square-o"></i></a></td>
+	        <td><a href="/admin/restapi/ciudadano/{{ ciudadano.id }}/delete/"><i class="fa fa-trash"></i></a></td>
 	      </tr>
 	      {% endfor %}
 
