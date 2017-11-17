@@ -1,0 +1,65 @@
+{
+  "_from": "manateeworks-barcodescanner-v3",
+  "_id": "manateeworks-barcodescanner-v3@3.0.45",
+  "_inBundle": false,
+  "_integrity": "sha1-pe+bUH/7VH28dDI6Z4pbF5tA0Ow=",
+  "_location": "/manateeworks-barcodescanner-v3",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "manateeworks-barcodescanner-v3",
+    "name": "manateeworks-barcodescanner-v3",
+    "escapedName": "manateeworks-barcodescanner-v3",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/manateeworks-barcodescanner-v3/-/manateeworks-barcodescanner-v3-3.0.45.tgz",
+  "_shasum": "a5ef9b507ffb547dbc74323a678a5b179b40d0ec",
+  "_spec": "manateeworks-barcodescanner-v3",
+  "_where": "C:\\Users\\Acer\\Desktop\\Desarrollos\\consultaMovil",
+  "author": {
+    "name": "Manatee Works"
+  },
+  "bugs": {
+    "url": "https://github.com/manateeworks/phonegap-manateeworks-v3.git/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "manateeworks-barcodescanner-v3",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Manatee Works Barcode Scanner Plugin",
+  "homepage": "https://github.com/manateeworks/phonegap-manateeworks-v3.git#readme",
+  "keywords": [
+    "phonegap",
+    "barcode",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "license": "MIT",
+  "name": "manateeworks-barcodescanner-v3",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.0.0",
+      "android": "1.1.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manateeworks/phonegap-manateeworks-v3.git"
+  },
+  "version": "3.0.45"
+}
