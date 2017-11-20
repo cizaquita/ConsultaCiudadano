@@ -2,10 +2,10 @@
 <widget id="co.edu.uelbosque.ing_software1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>ConsultaCiudadano</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Aplicación móvil para consultar ciudadanos, si es requerido o no.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="cristian.izaquita@gmail.com" href="https://about.me/cizaquita">
+        Sindy Gutierrez, Cristian Izaquita, Andrés Villegas
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
@@ -95,6 +95,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="~6.3.0" />
+    <engine name="ios" spec="^4.5.3" />
     <plugin name="cordova-plugin-battery-status" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" spec="~2.4.1" />
     <plugin name="cordova-plugin-media-capture" spec="~1.4.3" />

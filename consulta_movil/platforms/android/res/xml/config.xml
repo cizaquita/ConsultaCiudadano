@@ -40,10 +40,10 @@
     </feature>
     <name>ConsultaCiudadano</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Aplicación móvil para consultar ciudadanos, si es requerido o no.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="cristian.izaquita@gmail.com" href="https://about.me/cizaquita">
+        Sindy Gutierrez, Cristian Izaquita, Andrés Villegas
     </author>
     <content src="index.html" />
     <access origin="*" />

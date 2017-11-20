@@ -4,7 +4,8 @@
   "displayName": "ConsultaCiudadano",
   "cordova": {
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-battery-status": {},
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "cordova-android": "~6.3.0",
+    "cordova-ios": "^4.5.3",
     "cordova-plugin-battery-status": "~1.2.4",
     "cordova-plugin-camera": "~2.4.1",
     "cordova-plugin-device": "~1.1.6",

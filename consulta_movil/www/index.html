@@ -1,62 +1,116 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Consulta Ciudadano</title>
-</head>
-
-<body>
-    <div class="app">
-        <h1>Cosulta Ciudadano</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Conectando</p>
-            <p class="event received">Listo</p>
-            <button onClick="app.escanear();" style="width:80%;margin:15%;height:180px">scan</button>
+<html class="with-statusbar-overlay">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<title>Consulta Ciudadano</title>
+		<link rel="stylesheet" href="lib/css/framework7.css">
+		<link rel="stylesheet" href="lib/css/ionicons.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link href="img/favicon.png" rel="shortcut icon">
+	</head>
+	<body>
+	<!-- Statusbar overlay-->
+	<div class="statusbar-overlay"></div>
+    <!-- Panels Overlay -->
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="list-block">
+			<div class="list-group">
+				<ul>
+					<li class="item-content list-panel-registro close-panel item-link">
+						<div class="item-media"><i class="icon ion-person-add"></i></div>
+						<div class="item-inner">
+							<div class="item-title">Registro</div>
+						</div>
+					</li>
+				</ul>
+			</div>
         </div>
     </div>
-    <script type="text/javascript" src="js/MWBConfig.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-</body>
+    <!-- Views-->
+	<div class="views">
+		<div class="view view-main navbar-fixed">
+			<div class="navbar theme-white">
+				<div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                    <div class="center sliding contacts-list-header">Consulta Ciudadano</div>
+				</div>
+			</div>
+			<div class="pages">
+				<div data-page="login" class="page">
+					<div class="page-content login-form">
+						<div class="titulo-registro center">
+								<h1 class="center">Iniciar Sesión</h1>
+							<!--div class="item-photo">
+								<img src="img/cats/{{model.picId}}.png">
+							</div-->
+						</div>
 
+						<div class="contact-other list-block">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="icon ion-email"></i></div>
+										<div class="item-inner">
+											<div class="item-input">
+												<input name="input-email" class="email-login" id="email" type="email" placeholder="Correo electrónico">
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="icon ion-pound"></i></div>
+										<div class="item-inner">
+											<div class="item-input">
+												<input name="input-password" class="password-login" id="password" type="password" placeholder="Contraseña">
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="item-content">
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><button class="button btn-ingresar">Ingreso</button></div>
+							    <div class="col-20"></div>
+							</div>
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><button class="button btn-link-registro">Registro</button></div>
+							    <div class="col-20"></div>
+							</div>
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><a href="#" class="recuperar-password">Recuperar contraseña</a></div>
+							    <div class="col-20"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</body>
 </html>
+<script type="text/javascript" src="lib/lodash.js"></script>
+<script type="text/javascript" src="lib/framework7.js"></script>
+
+<script type="text/javascript" src="js/MWBConfig.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	escaner.initialize();
+</script>
+<script data-main="app" src="lib/require.js"></script>
