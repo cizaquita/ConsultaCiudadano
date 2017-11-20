@@ -1,0 +1,58 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-camera": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-media-capture": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "manateeworks-barcodescanner-v3": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    }
+  }
+}
