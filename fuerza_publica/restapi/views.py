@@ -41,7 +41,7 @@ def add_agente(request):
 		#password = request.POST.get("password")
 		try:
 			Agente.objects.get(email=email)
-			return JsonResponse({'status': 'error','message': 'El correo electronico ya se encuentra en uso.'})
+			return JsonResponse({'status': 'error','response': 'El correo electronico ya se encuentra en uso.'})
 		except:
 			try:
 				# Se valida el correo electronico
@@ -80,6 +80,10 @@ def add_agente(request):
 					fail_silently=False,
 				)
 
+				return JsonResponse({'status':'ok', 'response':'Usuario creado.', 'email':agente.email, 'password':agente.password})
+
 			except Exception as e:
-				return JsonResponse({'client':client.id})
+				return JsonResponse({'status':'error', 'response':'Ha ocurrido un error: ' + str(e)})
+	else:
+		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es POST'})
 
