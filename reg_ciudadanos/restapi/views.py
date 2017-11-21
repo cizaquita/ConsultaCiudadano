@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from restapi.models import Departamento, Ciudad, Identificacion, Ciudadano
 from restapi.serializers import *
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.template import loader
 
 #Generar PDF
@@ -106,3 +107,17 @@ def generar_pdf(request):
 	response.write(buff.getvalue())
 	buff.close()
 	return response
+
+
+@csrf_exempt
+def consulta_ciudadano(request):
+	# La peticion debe ser en metodo GET
+	if request.method == "GET":
+		identificacion = request.GET.get("identificacion")
+
+		try:
+			ciudadano = Ciudadano.objects.get(identificacion=identificacion);
+			return JsonResponse({'status':'ok', 'response':'Consulta de ciudadano', 'nombres':ciudadano.nombres,
+				'apellidos':ciudadano.apellidos, 'requerido':ciudadano.requerido})
+		except Exception as e:
+			return JsonResponse({'status':'error', 'response':'Ciudadano no se encuentra en la base de datos o: ' + str(e)})

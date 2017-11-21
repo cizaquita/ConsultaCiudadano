@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^add_agente/', views.add_agente, name='add_agente'),
+    url(r'^login/', views.login, name='login'),
 ]

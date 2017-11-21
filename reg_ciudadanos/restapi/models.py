@@ -41,7 +41,7 @@ class Ciudadano(models.Model):
 	nombres = models.CharField(max_length=200)
 	apellidos = models.CharField(max_length=200)
 	tipo_identificacion = models.ForeignKey(Identificacion, on_delete=models.CASCADE)
-	identificacion = models.CharField(max_length=200)
+	identificacion = models.CharField(max_length=200, unique=True)
 	fecha_nacimiento = models.DateField('Fecha de nacimiento')
 	# References to ciudad
 	lugar_nacimiento = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name='lugar_nacimiento')

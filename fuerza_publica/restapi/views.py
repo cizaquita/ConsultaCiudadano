@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.core.validators import validate_email
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate
 import random
 import string
 import json
@@ -26,11 +27,11 @@ class AgenteViewSet(viewsets.ModelViewSet):
 
 
 @csrf_exempt
-def add_agente(request):	
+def add_agente(request):
 	"""
-	Lista de tenderos dada una coordenada
-	:param request, 0point: POINT(-74.536610 4.719120):
-	:return json(tenderos):
+	Crear nuevo agente de la fuerza publica
+	:param identificacion, nombres, apellidos, fuerza_publica, rango, id_fp, email
+	:return json(succes or error):
 	"""
 	if request.method == "POST":
 
@@ -72,12 +73,12 @@ def add_agente(request):
 
 				# Se envia un email
 				send_mail(
-					'Cristian de Consulta ciudadano - Fuerza Publica',
+					'Cristian de Consulta Ciudadano - Fuerza Publica',
 					'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
 					'\n\nHa recibido este correo por que se ha registrado en Consulta Ciudadano.'+
 					'\nA continuacion se muestra su informacion de inicio de sesion:' +
-					'\n\n\n<b>Usuario:</b> ' + email +
-					'\n<b>Contrasena:</b> ' + password,
+					'\n\n\nUsuario: ' + email +
+					'\nContrasena: ' + password,
 					'cristian.izaquita@gmail.com',
 					[email],
 					fail_silently=False,
@@ -90,3 +91,37 @@ def add_agente(request):
 	else:
 		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es POST'})
 
+
+@csrf_exempt
+def login(request):
+	"""
+	Validar Login
+	:param email, password
+	:return json(succes or error):
+	"""
+	if request.method == "POST":
+		email = request.POST.get("email")
+		password = request.POST.get("password")
+
+		try:
+			agente = Agente.objects.get(email=email)
+		except:
+			return JsonResponse({'status':'error','response':'Email no encontrado.'})
+		agente_user = agente.user
+		user = authenticate(username=agente_user.username, password=password)
+
+		if user is not None:
+			return JsonResponse({'status':'ok', 'response':'Credenciales correctas.', 'nombres':agente.nombres, 'apellidos':agente.apellidos, 'rango':agente.rango})
+		else:
+			return JsonResponse({'status':'error','response':'Credenciales incorrectas.'})
+
+		#validate_email(email)
+		#valid_email = True
+		#if(email):
+		#	try:
+		#		user = User.objects.get(email=email,password=password)
+
+		#		return JsonResponse({'status':'ok', 'response':'Credenciales correctas.', 'nombres':agente})
+			
+		#	except ShopKeeper.DoesNotExist:
+		#		return JsonResponse({'status':'error','response':'Credenciales incorrectas.'})
