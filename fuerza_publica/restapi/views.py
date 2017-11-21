@@ -83,7 +83,7 @@ def add_agente(request):
 					fail_silently=False,
 				)
 
-				return JsonResponse({'status':'ok', 'response':'Usuario creado.', 'email':agente.email, 'password':agente.password})
+				return JsonResponse({'status':'ok', 'response':'Usuario creado.', 'email':agente.email, 'password':password})
 
 			except Exception as e:
 				return JsonResponse({'status':'error', 'response':'Ha ocurrido un error: ' + str(e)})
