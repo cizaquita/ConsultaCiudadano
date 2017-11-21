@@ -31,13 +31,17 @@ var api = {
         data.email = email;
         data.password = password;
 
-        $.post(API_FUERZA_PUBLICA + 'login/', data, function(success){
+        api.request('post', API_FUERZA_PUBLICA + 'login/', data, function(data){
+            console.log(data);
+            callback(data);
+        });
+        /*$.post(API_FUERZA_PUBLICA + 'login/', data, function(success){
             console.log(success);
             callback(success);
         }, function(error){
             console.log(error);
             callback(error);
-        });
+        });*/
     },
     consultarCiudadano: function(identificación, callback){
         var data = [];
@@ -48,6 +52,66 @@ var api = {
         }, function(error){
             callback(error);
         })
+    },
+
+    request: function(method, url, data, callback) {
+        var formData, i,
+            xmlhttp = new XMLHttpRequest();
+
+        if (typeof callback !== 'function') {
+            callback = undefined;
+        }
+
+        if (method.toLowerCase() === 'post') {
+            formData = new FormData();
+
+            for (i in data) {
+                if (!data.hasOwnProperty(i)) {
+                    continue;
+                }
+                formData.append(i, data[i]);
+            }
+        } else {
+            if (data) {
+                url += '?' + api.serialize(data);
+            }
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            var result = null;
+
+            if (xmlhttp.readyState !== 4) {
+                return;
+            }
+
+            try {
+                result = JSON.parse(xmlhttp.responseText);
+            } catch (e) {
+                console.error('JSON parse error: ' + e);
+            }
+
+            if (callback) {
+                callback(result);
+            }
+        };
+
+        xmlhttp.open(method, url, true);
+        try {
+            xmlhttp.send(formData);
+        } catch (e) {
+            var error = "error formdata: " + e.description;
+        }
+    },
+    serialize: function(obj) {
+        var p,
+        str = [];
+
+        for (p in obj)
+            if (obj.hasOwnProperty(p)) {
+                str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+            }
+
+        return str.join('&');
     }
 
 };
