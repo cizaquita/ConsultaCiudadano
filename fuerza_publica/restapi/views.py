@@ -50,7 +50,7 @@ def add_agente(request):
 				# Si la identificacion existe pero no el EMAIL se crea un nuevo agente y se asigna una contrasena password
 				# Se busca la identificacion y se crea un agente
 				agente = Agente.objects.get(identificacion=identificacion)
-				# Se asignar un nombre de usuario pero que no se usará
+				# Se asignar un nombre de usuario pero que no se usara
 				username = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(10))
 				# Se genera una contrasena para el nuevo agente segun el documento 6 DIGITOS, MINIMO UNA MAYUSCULA, UNA MINUSCULA Y UN NUMERO
 				# No se agregan algunos caracteres para no confundir al agente al recibir el email
