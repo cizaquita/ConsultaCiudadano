@@ -34,6 +34,6 @@ urlpatterns = [
 	url(r'^detalle/(?P<ciudadano_id>[0-9]+)/$', views.ciudadano_detail, name='ciudadano_detail'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    url(r'^consulta_ciudadano/$', views.consulta_ciudadano, name='consulta_ciudadano'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^consulta_ciudadano/', views.consulta_ciudadano, name='consulta_ciudadano'),
 ]
