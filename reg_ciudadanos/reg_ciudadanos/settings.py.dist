@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost',
+    '127.0.0.1'
+)
 
 # Application definition
 
@@ -115,11 +119,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Email Settings
+
+# python -m smtpd -n -c DebuggingServer localhost:1025
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 1025
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'otaviosantosx@gmail.com'
+EMAIL_HOST_PASSWORD = '!q1w2e3A-'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+#EMAIL_FILE_PATH = 'tmp/email-messages/'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'America/Bogota'
 
@@ -134,3 +154,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Login redirect
+LOGIN_REDIRECT_URL='/'
+# Logout redirect
+LOGOUT_REDIRECT_URL='/'

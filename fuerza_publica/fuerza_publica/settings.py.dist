@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost',
+    '127.0.0.1'
+)
 
 # Application definition
 
@@ -110,8 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Configuracin de email
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'otaviosantosx@gmail.com'
-EMAIL_HOST_PASSWORD = 'Cristian1230'
+EMAIL_HOST_USER = '@gmail.com'
+EMAIL_HOST_PASSWORD = 'mypassword12'
 EMAIL_PORT = 587
 
 # Internationalization
