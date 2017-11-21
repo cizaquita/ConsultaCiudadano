@@ -1,4 +1,7 @@
 
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from restapi.serializers import AgenteSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from django.views.decorators.csrf import csrf_exempt
