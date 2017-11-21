@@ -12,7 +12,7 @@ class Agente(models.Model):
 	identificacion = models.CharField(max_length=100,unique=True, verbose_name='Identificacion')
 	nombres = models.CharField(max_length=100, blank=True,null=True, verbose_name='Nombres')
 	apellidos = models.CharField(max_length=100, blank=True,null=True, verbose_name='Apellidos')
-	fuerza_publica = models.CharField(max_length=100, blank=True,null=True, verbose_name='Fuerza Pública')
+	fuerza_publica = models.CharField(max_length=100, blank=True,null=True, verbose_name='Fuerza Publica')
 	rango = models.CharField(max_length=100, blank=True,null=True, verbose_name='Rango')
 	id_fp = models.CharField(max_length=100, blank=True,null=True, verbose_name='ID Fuerza')
 	email = models.EmailField(max_length=100, blank=True,null=True, verbose_name='Correo electronico')

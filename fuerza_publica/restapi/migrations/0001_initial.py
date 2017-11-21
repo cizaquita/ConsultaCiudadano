@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('identificacion', models.CharField(max_length=100, verbose_name='Identificacion')),
                 ('nombres', models.CharField(max_length=100, verbose_name='Nombres')),
                 ('apellidos', models.CharField(max_length=100, verbose_name='Apellidos')),
-                ('fuerza_publica', models.CharField(max_length=100, verbose_name='Fuerza Pública')),
+                ('fuerza_publica', models.CharField(max_length=100, verbose_name='Fuerza Publica')),
                 ('rango', models.CharField(max_length=100, verbose_name='Rango')),
                 ('id_fp', models.CharField(max_length=100, verbose_name='ID Fuerza')),
                 ('email', models.EmailField(max_length=100, verbose_name='Correo electronico')),

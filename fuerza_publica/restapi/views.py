@@ -69,7 +69,7 @@ def add_agente(request):
 
 				# Se envia un email
 				send_mail(
-					'Cristian de Consulta ciudadano - Fuerza Pública',
+					'Cristian de Consulta ciudadano - Fuerza Publica',
 					'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
 					'\n\nHa recibido este correo por que se ha registrado en Consulta Ciudadano.'+
 					'\nA continuacion se muestra su informacion de inicio de sesion:' +

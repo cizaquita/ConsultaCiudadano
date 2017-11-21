@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='agente',
             name='fuerza_publica',
-            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Fuerza Pública'),
+            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Fuerza Publica'),
         ),
         migrations.AlterField(
             model_name='agente',
