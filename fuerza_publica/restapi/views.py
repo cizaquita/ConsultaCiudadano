@@ -41,14 +41,14 @@ def add_agente(request):
 		#password = request.POST.get("password")
 		try:
 			Agente.objects.get(email=email)
-			return JsonResponse({'status': 'error','message': 'El correo electrónico ya se encuentra en uso.'})
+			return JsonResponse({'status': 'error','message': 'El correo electronico ya se encuentra en uso.'})
 		except:
 			try:
 				# Se valida el correo electronico
 				validate_email(email)
 				valid_email = True
-				# Si la identificación existe pero no el EMAIL se crea un nuevo agente y se asigna una contraseña password
-				# Se busca la identificación y se crea un agente
+				# Si la identificacion existe pero no el EMAIL se crea un nuevo agente y se asigna una contraseña password
+				# Se busca la identificacion y se crea un agente
 				agente = Agente.objects.get(identificacion=identificacion)
 				# Se asignar un nombre de usuario pero que no se usará
 				username = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(10))
@@ -72,7 +72,7 @@ def add_agente(request):
 					'Cristian de Consulta ciudadano - Fuerza Pública',
 					'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
 					'\n\nHa recibido este correo por que se ha registrado en Consulta Ciudadano.'+
-					'\nA continuación se muestra su información de inicio de sesión:' +
+					'\nA continuacion se muestra su informacion de inicio de sesion:' +
 					'\n\n\n<b>Usuario:</b> ' + email +
 					'\n<b>Contraseña:</b> ' + password,
 					'cristian.izaquita@gmail.com',

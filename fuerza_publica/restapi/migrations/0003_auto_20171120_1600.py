@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='agente',
             name='email',
-            field=models.EmailField(blank=True, max_length=100, null=True, verbose_name='Correo electrónico'),
+            field=models.EmailField(blank=True, max_length=100, null=True, verbose_name='Correo electronico'),
         ),
         migrations.AlterField(
             model_name='agente',
