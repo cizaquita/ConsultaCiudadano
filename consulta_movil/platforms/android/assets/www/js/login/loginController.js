@@ -33,13 +33,21 @@ define(["app", "js/login/loginView"], function(app, LoginView) {
 		});
 
 	function validarLogin(email, password){
-			if (email.length > 3 && password.length > 3) {
-				console.log('login exitoso')
-				app.router.load('escaner');
-			}else {
-				app.f7.alert("Datos incompletos.");
-				return;
-			}
+		if (email.length > 3 && password.length > 3) {
+			api.login(email, password, function(data){
+				if (data.status = 'ok') {
+					console.log(data);
+					app.f7.alert('Bienvenido ' + data.rango + ' ' + data.apellidos, data.response);
+					app.router.load('escaner');
+				}else{
+					app.f7.alert('Los datos ingresados no concuerdan con la base dde datos.', data.response);
+					return;
+				}
+			});
+		}else {
+			app.f7.alert("Datos incompletos.");
+			return;
+		}
 	}
 
 	function registro(){
