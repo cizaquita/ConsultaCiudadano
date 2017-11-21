@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.core.validators import validate_email
 from django.core.mail import send_mail
+import random
 
 # Create your views here.
 class AgenteViewSet(viewsets.ModelViewSet):

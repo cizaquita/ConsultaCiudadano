@@ -27,10 +27,14 @@ define(["app", "js/agenteModel", "js/agenteNew/agenteNewView"], function(app, Ag
 		if (!agente.validate()) {
 			app.f7.alert("Debe completar todos los campos para continuar.");
 			return;
+		}else{
+			
+			app.f7.confirm("");
+
+			app.router.load('login'); // reRender main page view
+			closePage();
+
 		}
-		// TODO: CREAR VISTA inicio, será el login
-		app.router.load('login'); // reRender main page view
-		closePage();
 	}
 
 	function closePage() {
