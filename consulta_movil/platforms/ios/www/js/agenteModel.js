@@ -27,13 +27,13 @@ define(['app'],function(app) {
 
 	Agente.prototype.validate = function() {
 		var result = true;
-		if (_.isEmpty(this.identificacion) && _.isEmpty(this.nombres) && _.isEmpty(this.apellidos) 
-			&& _.isEmpty(this.fuerza_publica) && _.isEmpty(this.rango_fp)  && _.isEmpty(this.email)
-			 && _.isEmpty(this.id_fp)) {
+		if (_.isEmpty(this.identificacion) || _.isEmpty(this.nombres) || _.isEmpty(this.apellidos) 
+			|| _.isEmpty(this.fuerza_publica) || _.isEmpty(this.rango_fp)  || _.isEmpty(this.email)
+			 || _.isEmpty(this.id_fp)) {
 			result = false;
 		}
 		return result;
 	};
 
-    return Contact;
+    return Agente;
 });

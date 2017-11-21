@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+var escaner = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -33,13 +33,13 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        escaner.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
         
-        app.iniciarScanner();
+        escaner.iniciarScanner();
     },    
     iniciarScanner: function(){
         console.log('Scanner iniciado...')
@@ -70,18 +70,19 @@ var app = {
         });
 
     },
-    escanear: function() {
+    escanear: function(callback) {
         // Se crea la función para escanear el código y que devuelva la información
         mwbScanner.startScanning(function(result){
             console.log(JSON.stringify(result));
-            app.transformarDatos(result);
+            escaner.transformarDatos(result);
+            callback(result);
         });
     },
     transformarDatos: function(datos){
         var datos_cedula = datos.code.substring(48,168);
         var numero_cedula = parseInt(datos_cedula.substring(0,10));
-        var apellidos = app.limpiarString(datos_cedula.substring(10,56));
-        var nombres = app.limpiarString(datos_cedula.substring(56,102));
+        var apellidos = escaner.limpiarString(datos_cedula.substring(10,56));
+        var nombres = escaner.limpiarString(datos_cedula.substring(56,102));
         var sexo = datos_cedula.substring(103,104);
         if (sexo == 'M') {
             sexo = 'Masculino';
@@ -89,7 +90,7 @@ var app = {
         var anio_nacimiento = datos_cedula.substring(104,108);
         var mes_nacimiento = datos_cedula.substring(108,110);
         var dia_nacimiento = datos_cedula.substring(110,112);
-        var edad = app.calcularEdad(anio_nacimiento + '/' + mes_nacimiento + '/' + dia_nacimiento);
+        var edad = escaner.calcularEdad(anio_nacimiento + '/' + mes_nacimiento + '/' + dia_nacimiento);
         var rh = datos_cedula.substring(118,120);
         navigator.notification.vibrate(100);
         navigator.notification.alert('Cedula: ' + numero_cedula + '\nNombres: ' + nombres +

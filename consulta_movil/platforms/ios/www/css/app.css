@@ -200,6 +200,16 @@ body.with-panel-left-reveal .statusbar-overlay {
   color: #007aff;
 }
 /*
+Cizaquita
+*/
+.titulo-registro h1{
+  text-align: center;
+  font-size: 38px;
+  color: #007aff;
+}
+
+
+/*
 	Android optimization hacks
 */
 html.android .navbar-from-right-to-center .left.sliding .back.link .icon,

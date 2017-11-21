@@ -21,14 +21,8 @@
         <div class="list-block">
 			<div class="list-group">
 				<ul>
-					<li class="item-content list-panel-all close-panel item-link">
-						<div class="item-media"><i class="icon ion-ios7-paper"></i></div>
-						<div class="item-inner">
-							<div class="item-title">Inicio</div>
-						</div>
-					</li>
-					<li class="item-content list-panel-favorites close-panel item-link">
-						<div class="item-media"><i class="icon ion-ios7-star"></i></div>
+					<li class="item-content list-panel-registro close-panel item-link">
+						<div class="item-media"><i class="icon ion-person-add"></i></div>
 						<div class="item-inner">
 							<div class="item-title">Registro</div>
 						</div>
@@ -45,37 +39,66 @@
                     <div class="left">
                         <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                     </div>
-                    <div class="center sliding contacts-list-header">Consulta Ciduadano</div>
-                    <!--div class="right contact-add-link">
-                        <a href="#" class="link icon-only"><i class="icon icon-plus">+</i></a>
-                    </div-->
+                    <div class="center sliding contacts-list-header">Consulta Ciudadano</div>
 				</div>
 			</div>
 			<div class="pages">
-				<div data-page="list" class="page">
-					<!-- Search bar -->
-					<!--form class="searchbar" data-search-list=".contacts-list" data-search-in=".item-title">
-						<div class="searchbar-input">
-							<input type="search" placeholder="Search">
-							<a href="#" class="searchbar-clear"></a>
+				<div data-page="login" class="page">
+					<div class="page-content login-form">
+						<div class="titulo-registro center">
+								<h1 class="center">Iniciar Sesión</h1>
+							<!--div class="item-photo">
+								<img src="img/cats/{{model.picId}}.png">
+							</div-->
 						</div>
-						<a href="#" class="searchbar-cancel">Cancel</a>
-					</form-->
 
-					<!-- Search bar overlay-->
-					<!--div class="searchbar-overlay"></div-->
-
-                    <div class="page-content">
-                        <div class="list-block media-list contacts-list searchbar-found">
-							<div class="list-group">
-                            	<ul></ul>
+						<div class="contact-other list-block">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="icon ion-email"></i></div>
+										<div class="item-inner">
+											<div class="item-input">
+												<input name="input-email" class="email-login" id="email" type="email" placeholder="Correo electrónico">
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><i class="icon ion-pound"></i></div>
+										<div class="item-inner">
+											<div class="item-input">
+												<input name="input-password" class="password-login" id="password" type="password" placeholder="Contraseña">
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="item-content">
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><button class="button btn-ingresar">Ingreso</button></div>
+							    <div class="col-20"></div>
 							</div>
-                        </div>
-                        <div class="content-block searchbar-not-found">
-                            Nothing found
-                        </div>
-                    </div>
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><button class="button btn-link-registro">Registro</button></div>
+							    <div class="col-20"></div>
+							</div>
+							<br>
+							<div class="row">
+							    <div class="col-20"></div>
+							    <div class="col-30"><a href="#" class="recuperar-password">Recuperar contraseña</a></div>
+							    <div class="col-20"></div>
+							</div>
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -83,4 +106,11 @@
 </html>
 <script type="text/javascript" src="lib/lodash.js"></script>
 <script type="text/javascript" src="lib/framework7.js"></script>
+
+<script type="text/javascript" src="js/MWBConfig.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	escaner.initialize();
+</script>
 <script data-main="app" src="lib/require.js"></script>
