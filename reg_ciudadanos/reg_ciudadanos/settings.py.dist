@@ -27,10 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost',
-    '127.0.0.1'
-)
 
 # Application definition
 
@@ -155,7 +151,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Login redirect
 LOGIN_REDIRECT_URL='/'
 # Logout redirect

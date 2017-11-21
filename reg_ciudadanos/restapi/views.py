@@ -6,6 +6,9 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
+from django.views.decorators.clickjacking import xframe_options_exempt
+
+
 
 #Generar PDF
 from io import BytesIO
@@ -54,7 +57,8 @@ def index(request):
 
 	return render(request, 'reg_ciudadanos/index.html', context)
 
-
+@xframe_options_exempt
+@csrf_exempt
 def ciudadano_detail(request, ciudadano_id):
 	return HttpResponse("Pagina para visualizar el detalle del ciudadano_id: %s" % ciudadano_id)
 
@@ -110,6 +114,7 @@ def generar_pdf(request):
 	return response
 
 
+@xframe_options_exempt
 @csrf_exempt
 def consulta_ciudadano(request):
 	# La peticion debe ser en metodo GET
@@ -118,7 +123,11 @@ def consulta_ciudadano(request):
 
 		try:
 			ciudadano = Ciudadano.objects.get(identificacion=identificacion);
-			return JsonResponse({'status':'ok', 'response':'Consulta de ciudadano', 'nombres':ciudadano.nombres,
+			response = JsonResponse({'status':'ok', 'response':'Consulta de ciudadano', 'nombres':ciudadano.nombres,
 				'apellidos':ciudadano.apellidos, 'requerido':ciudadano.requerido})
+			response['Access-Control-Allow-Origin'] = '*'
+			return response
 		except Exception as e:
-			return JsonResponse({'status':'error', 'response':'Ciudadano no se encuentra en la base de datos o: ' + str(e)})
+			response = JsonResponse({'status':'error', 'response':'Ciudadano no se encuentra en la base de datos o: ' + str(e)})
+			response['Access-Control-Allow-Origin'] = '*'
+			return response

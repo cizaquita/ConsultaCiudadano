@@ -12,6 +12,8 @@ from django.http import JsonResponse
 from django.core.validators import validate_email
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 import random
 import string
 import json
@@ -25,7 +27,7 @@ class AgenteViewSet(viewsets.ModelViewSet):
     serializer_class = AgenteSerializer
     permission_classes = (IsAdminUser,)
 
-
+@xframe_options_exempt
 @csrf_exempt
 def add_agente(request):
 	"""
@@ -92,7 +94,7 @@ def add_agente(request):
 	else:
 		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es valido.'})
 
-
+@xframe_options_exempt
 @csrf_exempt
 def login(request):
 	"""

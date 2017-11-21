@@ -3,4 +3,4 @@ djangorestframework
 mysqlclient
 django-adminlte2
 reportlab
-
+django-cors-headers
