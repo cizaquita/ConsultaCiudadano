@@ -47,12 +47,12 @@ def add_agente(request):
 				# Se valida el correo electronico
 				validate_email(email)
 				valid_email = True
-				# Si la identificacion existe pero no el EMAIL se crea un nuevo agente y se asigna una contraseña password
+				# Si la identificacion existe pero no el EMAIL se crea un nuevo agente y se asigna una contrasena password
 				# Se busca la identificacion y se crea un agente
 				agente = Agente.objects.get(identificacion=identificacion)
 				# Se asignar un nombre de usuario pero que no se usará
 				username = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(10))
-				# Se genera una contraseña para el nuevo agente segun el documento 6 DIGITOS, MINIMO UNA MAYUSCULA, UNA MINUSCULA Y UN NUMERO
+				# Se genera una contrasena para el nuevo agente segun el documento 6 DIGITOS, MINIMO UNA MAYUSCULA, UNA MINUSCULA Y UN NUMERO
 				# No se agregan algunos caracteres para no confundir al agente al recibir el email
 				# i, l, I, y 1 (i minuscula, l minuscula, I mayuscula ni numero 1)
 				# o, O, and 0 (o minuscula, o mayuscula y numero 0)
@@ -74,7 +74,7 @@ def add_agente(request):
 					'\n\nHa recibido este correo por que se ha registrado en Consulta Ciudadano.'+
 					'\nA continuacion se muestra su informacion de inicio de sesion:' +
 					'\n\n\n<b>Usuario:</b> ' + email +
-					'\n<b>Contraseña:</b> ' + password,
+					'\n<b>Contrasena:</b> ' + password,
 					'cristian.izaquita@gmail.com',
 					[email],
 					fail_silently=False,
