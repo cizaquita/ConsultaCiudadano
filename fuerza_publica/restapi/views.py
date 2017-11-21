@@ -62,6 +62,7 @@ def add_agente(request):
 				# o, O, and 0 (o minuscula, o mayuscula y numero 0)
 				password = User.objects.make_random_password(length=6, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')
 				user = User.objects.create_user(username, email, password)
+				agente.user = user
 				agente.nombres = nombres
 				agente.apellidos = apellidos
 				agente.fuerza_publica = fuerza_publica
@@ -89,7 +90,7 @@ def add_agente(request):
 			except Exception as e:
 				return JsonResponse({'status':'error', 'response':'Ha ocurrido un error: ' + str(e)})
 	else:
-		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es POST'})
+		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es valido.'})
 
 
 @csrf_exempt
@@ -125,3 +126,5 @@ def login(request):
 			
 		#	except ShopKeeper.DoesNotExist:
 		#		return JsonResponse({'status':'error','response':'Credenciales incorrectas.'})
+	else:
+		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es valido.'})
