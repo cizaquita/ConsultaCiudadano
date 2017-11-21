@@ -59,7 +59,7 @@ def add_agente(request):
 				# No se agregan algunos caracteres para no confundir al agente al recibir el email
 				# i, l, I, y 1 (i minuscula, l minuscula, I mayuscula ni numero 1)
 				# o, O, and 0 (o minuscula, o mayuscula y numero 0)
-				password = make_random_password(length=6, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')
+				password = User.objects.make_random_password(length=6, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')
 				user = User.objects.create_user(username, email, password)
 				agente.nombres = nombres
 				agente.apellidos = apellidos
