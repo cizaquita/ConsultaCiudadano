@@ -19,6 +19,10 @@ define(['app', 'js/agenteModel', 'hbs!js/agenteNew/agenteNew'], function(app, Ag
 			var inputValues = $('.contact-edit-form input');
 			doneCallback(inputValues);
 		});
+		$('.btn-aceptar').on('click', function() {
+			var inputValues = $('.contact-edit-form input');
+			doneCallback(inputValues);
+		});	
 	}
 
 	return {
