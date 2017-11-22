@@ -15,8 +15,35 @@ define(['app', 'hbs!js/escaner/escaner'], function(app, escanerTemplate) {
 	}
 
 	function bindSaveEvent(doneCallback) {
-		$('.agente-save-link').on('click', function() {
-			var inputValues = $('.contact-edit-form input');
+		$('.btn-consultar').on('click', function() {
+			var consultaValues = $('.consulta-cedula-form input');
+			var identificacion = consultaValues[0].value;
+			consultar(identificacion);
+		});
+
+		$('.btn-salir').on('click', function() {
+			app.router.load('login');
+		});
+	}
+
+	function consultar(identificacion){
+		//var identificacion = $('.identificacion').value;
+		console.log('identificación : ' + identificacion);
+		api.consultarCiudadano(identificacion, function(data){
+			data = JSON.parse(data);
+			console.log(data)
+			if (data.status == 'ok') {
+				if (data.requerido) {
+					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+					'\nEs: No requerido','Consulta');
+				}else {
+					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+					'\nEs: Requerido','Consulta');
+				}
+			}else{
+				app.f7.alert(data.response,'Error');
+			}
+
 		});
 	}
 

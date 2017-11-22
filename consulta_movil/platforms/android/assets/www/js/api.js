@@ -39,11 +39,11 @@ var api = {
             callback(error);
         });
     },
-    consultarCiudadano: function(identificación, callback){
+    consultarCiudadano: function(identificacion, callback){
         var data = [];
         data.identificacion = identificacion;
 
-        $.post(API_CIUDADANOS + 'consulta_ciduadano/', data, function(success){
+        $.get(API_CIUDADANOS + 'consulta_ciudadano/', data, function(success){
             callback(success);
         }, function(error){
             callback(error);

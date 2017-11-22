@@ -76,12 +76,13 @@ def add_agente(request):
 
 				# Se envia un email
 				send_mail(
-					'Cristian de Consulta Ciudadano - Fuerza Publica',
+					'Admin de Consulta Ciudadano - Fuerza Publica',
 					'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
 					'\n\nHa recibido este correo por que se ha registrado en Consulta Ciudadano.'+
 					'\nA continuacion se muestra su informacion de inicio de sesion:' +
 					'\n\n\nUsuario: ' + email +
-					'\nContrasena: ' + password,
+					'\nContrasena: ' + password +
+					'\n\n\nCordial saludo,\nStaff de Consulta Ciudadano.',
 					'cristian.izaquita@gmail.com',
 					[email],
 					fail_silently=False,
@@ -130,3 +131,50 @@ def login(request):
 		#		return JsonResponse({'status':'error','response':'Credenciales incorrectas.'})
 	else:
 		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es valido.'})
+
+
+
+@xframe_options_exempt
+@csrf_exempt
+def recuperar_password(request):
+	"""
+	Recuperar contrasena
+	:param email
+	:return json(succes or error):
+	"""
+	if request.method == "POST":
+		email = request.POST.get("email")
+
+		try:
+			agente = Agente.objects.get(email=email)
+		except:
+			return JsonResponse({'status':'error','response':'Email no encontrado.'})
+		try:	
+			password = agente.user.password
+			username = agente.user.username
+			rango = agente.rango
+			apellidos = agente.apellidos
+			nombres = agente.nombres
+
+
+			# Se envia un email
+			send_mail(
+				'Admin de Consulta Ciudadano - Fuerza Publica',
+				'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
+				'\n\nHa recibido este correo por que ha solicitado la recuperacion de su contrasena en Consulta Ciudadano.'+
+				'\nA continuacion se muestra su contrasena:' +
+				'\n\n\nUsuario: ' + username +
+				'\nEmail: ' + email +
+				'\nContrasena: ' + password +
+				'\n\n\nCordial saludo,\nStaff de Consulta Ciudadano.',
+				'cristian.izaquita@gmail.com',
+				[email],
+				fail_silently=False,
+			)
+
+			return JsonResponse({'status':'ok', 'response':'Email enviado.', 'email':agente.email, 'password':password})
+		except Exception as e:
+			return JsonResponse({'status':'error', 'response':'Ha ocurrido un error: ' + str(e)})
+	else:
+		return JsonResponse({'status':'error', 'response':'Metodo de peticion no es valido.'})
+

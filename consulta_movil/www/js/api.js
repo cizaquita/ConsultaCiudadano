@@ -9,21 +9,21 @@ var API_FUERZA_PUBLICA = 'http://ada.resistencia.la:9000/';
 var api = {
     // Application Constructor
     addAgente: function(identificacion, nombres, apellidos, fuerza_publica, rango, email, id_fp, callback) {
-    	var data = [];
-    	data.identificacion = identificacion;
-    	data.nombres = nombres;
-    	data.apellidos = apellidos;
-    	data.fuerza_publica = fuerza_publica;
-    	data.rango = rango;
-    	data.email = email;
-    	data.id_fp = id_fp;
+        var data = [];
+        data.identificacion = identificacion;
+        data.nombres = nombres;
+        data.apellidos = apellidos;
+        data.fuerza_publica = fuerza_publica;
+        data.rango = rango;
+        data.email = email;
+        data.id_fp = id_fp;
 
         $.post(API_FUERZA_PUBLICA + 'add_agente/', data, function(success){
-        	console.log(success);
-        	callback(success);
+            console.log(success);
+            callback(success);
         }, function(error){
-        	console.log(error);
-        	callback(error);
+            console.log(error);
+            callback(error);
         });
     },
     login: function(email, password, callback){
@@ -44,6 +44,16 @@ var api = {
         data.identificacion = identificacion;
 
         $.get(API_CIUDADANOS + 'consulta_ciudadano/', data, function(success){
+            callback(success);
+        }, function(error){
+            callback(error);
+        })
+    },
+    recuperarPassword: function(email, callback) {
+        var data = [];
+        data.email = email;
+
+        $.post(API_FUERZA_PUBLICA + 'recuperar_password/', data, function(success){
             callback(success);
         }, function(error){
             callback(error);

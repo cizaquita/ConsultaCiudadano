@@ -56,14 +56,22 @@ define(["app", "js/login/loginView"], function(app, LoginView) {
 	}
 
 	function recuperarPassword(){
-		alert('recuuperar password');
-	}
-	function registro() {
-		app.router.load('agenteNew');
-	}
-
-	function showFavorites() {
-		app.router.load('agenteNew');
+		app.f7.prompt('Ingrese el correo electrónico con el cual se registró:', 'Recuperación de contraseña',
+			function (email) {
+			if (email != '' && email.length >= 4) {
+				api.recuperarPassword(email, function(data){
+					data = JSON.parse(data);
+					if (data.status == 'ok') {
+						app.f7.alert('Se ha enviado un correo electrónico con la contraseña a: ' + email, data.response);
+					}else{
+						app.f7.alert(data.response,'Error');
+					}
+				})
+			}else{
+				app.f7.alert('Introduzca un correo electrónico válido.');
+			}
+			
+		}, function(value){});
 	}
 
     return {

@@ -8,14 +8,6 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 		element: '.btn-escanear',
 		event: 'click',
 		handler: escanear
-	},{
-		element: '.btn-consultar',
-		event: 'click',
-		handler: consultar
-	},{
-		element: '.btn-salir',
-		event: 'click',
-		handler: salir
 	}
 	];
 
@@ -23,14 +15,52 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
     	EscanerView.render({ bindings: bindings});
 	}
 
-	function escanear(callback){
-		escaner.escanear(function(result){
-			console.log('escanerar escaner controller' + result);
+	$('.btn-consultar').on('click', function() {
+		var consultaValues = $('.consulta-cedula-form input');
+		var identificacion = consultaValues[0].value;
+		consultar(identificacion);
+	});
+
+	function consultar(identificacion){
+		//var identificacion = $('.identificacion').value;
+		console.log('identificación : ' + identificacion);
+		api.consultarCiudadano(identificacion, function(data){
+			data = JSON.parse(data);
+			console.log(data)
+			if (data.status == 'ok') {
+				if (data.requerido == 'True') {
+					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+					'\nEs: Requerido','Consulta');
+				}else {
+					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+					'\nEs: No requerido','Consulta');
+				}
+			}else{
+				app.f7.alert(data.response,'Error');
+			}
+
 		});
 	}
 
-	function consultar(){
-		alert('consulta');
+	function escanear(callback){
+		escaner.escanear(function(result){
+			api.consultarCiudadano(result, function(data){
+				data = JSON.parse(data);
+				console.log(data)
+				if (data.status == 'ok') {
+					if (data.requerido) {
+						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+						'\nEs: No requerido','Consulta');
+					}else {
+						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+						'\nEs: Requerido','Consulta');
+					}
+				}else{
+					app.f7.alert(data.response,'Error');
+				}
+
+			})
+		});
 	}
 
 	function salir(){

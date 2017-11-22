@@ -74,8 +74,8 @@ var escaner = {
         // Se crea la función para escanear el código y que devuelva la información
         mwbScanner.startScanning(function(result){
             console.log(JSON.stringify(result));
-            escaner.transformarDatos(result);
-            callback(result);
+            numero_cedula = escaner.transformarDatos(result);
+            callback(numero_cedula);
         });
     },
     transformarDatos: function(datos){
@@ -92,14 +92,15 @@ var escaner = {
         var dia_nacimiento = datos_cedula.substring(110,112);
         var edad = escaner.calcularEdad(anio_nacimiento + '/' + mes_nacimiento + '/' + dia_nacimiento);
         var rh = datos_cedula.substring(118,120);
-        navigator.notification.vibrate(100);
-        navigator.notification.alert('Cedula: ' + numero_cedula + '\nNombres: ' + nombres +
+        /*navigator.notification.alert('Cedula: ' + numero_cedula + '\nNombres: ' + nombres +
                                      '\nApellidos: ' + apellidos + '\nSexo: ' + sexo +
                                      '\nAño nacimiento: ' + anio_nacimiento +
                                      '\nMes nacimiento: ' + mes_nacimiento +
                                      '\nDia nacimiento: ' + dia_nacimiento +
                                      '\nRH: ' + rh +
                                      '\nEdad: ' + edad, null, 'Test Datos obtenidos', 'Aceptar')
+        */
+        return numero_cedula;
     },
     limpiarString: function(texto){
         while (texto.includes('  ')){

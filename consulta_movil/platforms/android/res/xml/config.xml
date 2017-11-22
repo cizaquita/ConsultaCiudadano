@@ -38,6 +38,10 @@
     <feature name="MWBarcodeScanner">
         <param name="android-package" value="com.manateeworks.BarcodeScannerPlugin" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>ConsultaCiudadano</name>
     <description>
         Aplicación móvil para consultar ciudadanos, si es requerido o no.
@@ -46,6 +50,9 @@
         Sindy Gutierrez, Cristian Izaquita, Andrés Villegas
     </author>
     <content src="index.html" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

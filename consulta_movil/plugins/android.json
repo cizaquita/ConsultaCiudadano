@@ -39,6 +39,9 @@
     },
     "manateeworks-barcodescanner-v3": {
       "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "co.edu.uelbosque.ing_software1"
     }
   },
   "dependent_plugins": {

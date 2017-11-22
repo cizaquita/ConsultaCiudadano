@@ -7,39 +7,45 @@ define(["app", "js/agenteModel", "js/agenteNew/agenteNewView"], function(app, Ag
 	var bindings = [];
 
 	function init(query){
-		//var contacts = JSON.parse(localStorage.getItem("f7Contacts"));
-		/*if (query && query.id) {
-			contact = new Contact(_.find(contacts, { id: query.id }));
-			state.isNew = false;
-		}
-		else {
-			contact = new Contact({ isFavorite: query.isFavorite });
-			state.isNew = true;
-		}*/
-
 		agente = new Agente();
 		state.isNew = true;
 		View.render({ model: agente, bindings: bindings, state: state, doneCallback: saveAgente });
 	}
 
-	function saveAgente(inputValues) {
-		agente.setValues(inputValues);
+	$('.btn-aceptar').on('click', function() {
+			var registerValues = $('.contact-edit-form input');
+			saveAgente(registerValues);
+	});	
+
+	function saveAgente(registerValues) {
+		agente.setValues(registerValues);
 		if (!agente.validate()) {
 			app.f7.alert("Debe completar todos los campos para continuar.");
 			return;
 		}else{
-			
-			app.f7.confirm("");
-
-			app.router.load('login'); // reRender main page view
-			closePage();
+			//Registro de nuevo agente
+			var identificacion = registerValues[0].value;
+			var nombres = registerValues[1].value;
+			var apellidos = registerValues[2].value;
+			var fuerza_publica = registerValues[3].value;
+			var rango_fp = registerValues[4].value;
+			var id_fp = registerValues[5].value;
+			var email = registerValues[6].value;
+			api.addAgente(identificacion, nombres, apellidos, fuerza_publica, rango_fp,
+				email, id_fp, function(data){
+					data = JSON.parse(data);
+					if (data.status == 'ok') {
+						app.f7.alert(data.response + ' Recibirá un correo electrónico con su información de inicio de sesión.');
+					}else{
+						app.f7.alert(data.response + '\nVerifique y corrija la información.', 'Error');
+					}
+				});
 
 		}
 	}
 
 	function closePage() {
 		app.router.load('login');
-		console.log('closePage de agenteNew')
 		app.f7.closeModal();
 	}
 

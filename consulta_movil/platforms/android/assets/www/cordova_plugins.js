@@ -393,7 +393,8 @@ module.exports.metadata =
   "cordova-plugin-inappbrowser": "1.7.2",
   "cordova-plugin-network-information": "1.3.4",
   "cordova-plugin-vibration": "2.1.6",
-  "manateeworks-barcodescanner-v3": "3.0.45"
+  "manateeworks-barcodescanner-v3": "3.0.45",
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });
