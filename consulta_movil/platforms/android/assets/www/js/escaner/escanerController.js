@@ -50,10 +50,10 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 				if (data.status == 'ok') {
 					if (data.requerido) {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\nEs: No requerido','Consulta');
+						'\nEs: Requerido','Consulta');
 					}else {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\nEs: Requerido','Consulta');
+						'\nEs: No requerido','Consulta');
 					}
 				}else{
 					app.f7.alert(data.response,'Error');
@@ -64,7 +64,8 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 	}
 
 	function salir(){
-		alert('salir');
+		app.router.load('login');
+		app.f7.closeModal();
 	}
 
     return {

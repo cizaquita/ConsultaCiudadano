@@ -149,9 +149,12 @@ def recuperar_password(request):
 			agente = Agente.objects.get(email=email)
 		except:
 			return JsonResponse({'status':'error','response':'Email no encontrado.'})
-		try:	
-			password = agente.user.password
-			username = agente.user.username
+		try:
+			agente_user = agente.user
+			password = User.objects.make_random_password(length=6, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')
+			agente_user.set_password(password)
+			agente_user.save()
+			agente.save()
 			rango = agente.rango
 			apellidos = agente.apellidos
 			nombres = agente.nombres
@@ -162,9 +165,8 @@ def recuperar_password(request):
 				'Admin de Consulta Ciudadano - Fuerza Publica',
 				'Buenas, ' + rango + ' ' + apellidos + ' ' + nombres + '.' +
 				'\n\nHa recibido este correo por que ha solicitado la recuperacion de su contrasena en Consulta Ciudadano.'+
-				'\nA continuacion se muestra su contrasena:' +
-				'\n\n\nUsuario: ' + username +
-				'\nEmail: ' + email +
+				'\nA continuacion se muestra su nueva contrasena:' +
+				'\n\n\nEmail: ' + email +
 				'\nContrasena: ' + password +
 				'\n\n\nCordial saludo,\nStaff de Consulta Ciudadano.',
 				'cristian.izaquita@gmail.com',

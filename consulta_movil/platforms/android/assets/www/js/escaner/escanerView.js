@@ -23,6 +23,7 @@ define(['app', 'hbs!js/escaner/escaner'], function(app, escanerTemplate) {
 
 		$('.btn-salir').on('click', function() {
 			app.router.load('login');
+			app.f7.closeModal();
 		});
 	}
 
@@ -35,10 +36,10 @@ define(['app', 'hbs!js/escaner/escaner'], function(app, escanerTemplate) {
 			if (data.status == 'ok') {
 				if (data.requerido) {
 					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\nEs: No requerido','Consulta');
+					'\nEs: Requerido','Consulta');
 				}else {
 					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\nEs: Requerido','Consulta');
+					'\nEs: No requerido','Consulta');
 				}
 			}else{
 				app.f7.alert(data.response,'Error');
