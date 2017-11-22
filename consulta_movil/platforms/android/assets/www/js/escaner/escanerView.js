@@ -36,10 +36,10 @@ define(['app', 'hbs!js/escaner/escaner'], function(app, escanerTemplate) {
 			if (data.status == 'ok') {
 				if (data.requerido) {
 					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\nEs: Requerido','Consulta');
+					'\n con número de identificación ' + identificacion + ', es REQUERIDO.','Consulta');
 				}else {
 					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\nEs: No requerido','Consulta');
+					'\n con número de identificación ' + identificacion + ', No es requerido.','Consulta');
 				}
 			}else{
 				app.f7.alert(data.response,'Error');

@@ -4,18 +4,17 @@ define(["app", "js/agenteModel", "js/agenteNew/agenteNewView"], function(app, Ag
 	var state = {
 		isNew: false
 	};
-	var bindings = [];
+	var bindings = [{
+		element: '.btn-cancelar',
+		event: 'click',
+		handler: closePage
+	}];
 
 	function init(query){
 		agente = new Agente();
 		state.isNew = true;
 		View.render({ model: agente, bindings: bindings, state: state, doneCallback: saveAgente });
 	}
-
-	$('.btn-aceptar').on('click', function() {
-			var registerValues = $('.contact-edit-form input');
-			saveAgente(registerValues);
-	});	
 
 	function saveAgente(registerValues) {
 		agente.setValues(registerValues);

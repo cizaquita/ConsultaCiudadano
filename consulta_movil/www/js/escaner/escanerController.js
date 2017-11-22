@@ -21,27 +21,6 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 		consultar(identificacion);
 	});
 
-	function consultar(identificacion){
-		//var identificacion = $('.identificacion').value;
-		console.log('identificación : ' + identificacion);
-		api.consultarCiudadano(identificacion, function(data){
-			data = JSON.parse(data);
-			console.log(data)
-			if (data.status == 'ok') {
-				if (data.requerido == 'True') {
-					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\n con número de identificación ' + identificacion + ', es REQUERIDO.', 'Consulta');
-				}else {
-					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\n con número de identificación ' + identificacion + ', No es requerido.', 'Consulta');
-				}
-			}else{
-				app.f7.alert(data.response,'Error');
-			}
-
-		});
-	}
-
 	function escanear(callback){
 		escaner.escanear(function(result){
 			api.consultarCiudadano(result, function(data){
@@ -50,10 +29,10 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 				if (data.status == 'ok') {
 					if (data.requerido) {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\nEs: Requerido','Consulta');
+						'\n con número de identificación ' + identificacion + ', es REQUERIDO.','Consulta');
 					}else {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\nEs: No requerido','Consulta');
+						'\n con número de identificación ' + identificacion + ', No es requerido.','Consulta');
 					}
 				}else{
 					app.f7.alert(data.response,'Error');

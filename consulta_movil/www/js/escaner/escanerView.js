@@ -29,23 +29,26 @@ define(['app', 'hbs!js/escaner/escaner'], function(app, escanerTemplate) {
 
 	function consultar(identificacion){
 		//var identificacion = $('.identificacion').value;
-		console.log('identificación : ' + identificacion);
-		api.consultarCiudadano(identificacion, function(data){
-			data = JSON.parse(data);
-			console.log(data)
-			if (data.status == 'ok') {
-				if (data.requerido) {
-					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\n con número de identificación ' + identificacion + ', es REQUERIDO.','Consulta');
-				}else {
-					app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-					'\n con número de identificación ' + identificacion + ', No es requerido.','Consulta');
+		if (identificacion != '' && identificacion.length > 4) {
+			api.consultarCiudadano(identificacion, function(data){
+				data = JSON.parse(data);
+				console.log(data)
+				if (data.status == 'ok') {
+					if (data.requerido) {
+						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+						'\n con número de identificación ' + identificacion + ', es REQUERIDO.','Consulta');
+					}else {
+						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
+						'\n con número de identificación ' + identificacion + ', No es requerido.','Consulta');
+					}
+				}else{
+					app.f7.alert(data.response,'Error');
 				}
-			}else{
-				app.f7.alert(data.response,'Error');
-			}
 
-		});
+			});
+		}else{
+			app.f7.alert('Documento inválido, verifique la información.','Error');
+		}
 	}
 
 	return {
