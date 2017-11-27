@@ -124,8 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'otaviosantosx@gmail.com'
-EMAIL_HOST_PASSWORD = '!q1w2e3A-'
+EMAIL_HOST_USER = '@gmail.com'
+EMAIL_HOST_PASSWORD = 'mypassword12'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'tmp/email-messages/'
