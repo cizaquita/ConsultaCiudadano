@@ -7,7 +7,7 @@ Universidad El Bosque, Ingeniería de Software. Desarrollo de software que permi
 
 Se desarrollan tres modulos:
 * Registro de Ciudadanos por medio de un módulo web (CRUD) con API para consulta del ciudadano por medio de la identificación
-  * El sistema debe permitir la gestión y administración de los ciudadanos. Para ello, es necesario almacenar:
+  * El sistema permite la gestión y administración de los ciudadanos. Para ello, se almacenan:
     * Información del ciudadano
     * Nombres
     * Apellidos
@@ -19,13 +19,13 @@ Se desarrollan tres modulos:
     * RH
     * Grupo sanguíneo
     * Estatura
-  * El sistema debe permitir la generación de un reporte de los ciudadanos. Para ello, es necesario filtrar:
+  * El sistema permite la generación de un reporte de los ciudadanos. Para ello, se filtran:
     * Requeridos / No requeridos
     * Resultado
     * Identificación
     * Nombres
     * Apellidos
-  * El reporte debe ser generado en PDF.
+  * El reporte es generado en PDF.
 
 * Aplicación móvil (Android & iOS) creada en Cordova encargada de consumir los servicios de las dos API. Además de poder escanear el código PDF417 de la cedula de ciudadanía colombiana.
   * La aplicación permite al usuario (personal de la fuerza pública) registrarse, ingresando sus datos principales:
@@ -37,17 +37,14 @@ Se desarrollan tres modulos:
     * Rango (Dependiendo de la fuerza pública)
     * ID Fuerza
     * Correo electrónico
-  * Cuando el usuario se registre, el sistema validará contra la base de datos del Departamento de Defensa y si está todo correcto le llegará un correo de confirmación proporcionando una contraseña que se genera automáticamente
-    * Consideraciones
+  * Cuando el usuario se registra, el sistema valida contra la base de datos del Departamento de Defensa y si está todo correcto le llega un correo de confirmación proporcionando una contraseña que se genera automáticamente
     * 6 caracteres
     * Mínimo una mayúscula, una minúscula y un número.
-  * La aplicación debe permitir al usuario (personal de la fuerza pública), ingresar sus credenciales como autenticación:
-    * Información login
-    * Identificación
+  * La aplicación permite al usuario (personal de la fuerza pública), ingresar sus credenciales como autenticación:
+    * Email
     * Contraseña
     * Recordar contraseña
-  * La aplicación debe permitir al usuario (personal de la fuerza pública) leer con su teléfono o tablet el código de barras de la cédula de ciudadanía del ciudadano y consultar sus antecedentes judiciales:
-    * Información de consulta
+  * La aplicación permite al usuario (personal de la fuerza pública) leer con su teléfono o tablet el código de barras de la cédula de ciudadanía del ciudadano y consultar sus antecedentes judiciales:
     * Código de barras (identificación)
     * Información de resultado
     * Estado del ciudadano (Requerido o No requerido)
