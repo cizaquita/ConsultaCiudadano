@@ -10,6 +10,10 @@ Se desarrollan tres modulos:
 * Fuerza Pública por medio de un módulo web (CRUD) con API para crear un nuevo agente de la fuerza publica, login y recuperar contraseña.
 * Aplicación móvil (Android & iOS) creada en Cordova encargada de consumir los servicios de las dos API. Además de poder escanear el código PDF417 de la cedula de ciudadanía colombiana.
 
+## Capturas
+### consulta_movil app móvil
+<img src="/capturas/consulta_movil/1.png" alt="Inicio app móvil" width="100px" height="170px">  <img src="/capturas/consulta_movil/2.png" alt="Menú app móvil" width="100px" height="170px">  <img src="/capturas/consulta_movil/3.png" alt="Registro app móvil" width="100px" height="170px">  <img src="/capturas/consulta_movil/4.png" alt="Reuperaión app móvil" width="100px" height="170px">  <img src="/capturas/consulta_movil/5.png" alt="Consulta app móvil" width="100px" height="170px">  <img src="/capturas/consulta_movil/6.png" alt="Consulta app móvil" width="100px" height="170px"> 
+
 # Archivos
 
 * `reg_ciudadano` Carpeta contenedora del módulo de Registro de Ciudadanos
