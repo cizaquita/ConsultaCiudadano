@@ -29,10 +29,10 @@ define(["app", "js/escaner/escanerView"], function(app, EscanerView) {
 				if (data.status == 'ok') {
 					if (data.requerido) {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\n con número de identificación ' + data.identificacion + ', es REQUERIDO.','Consulta');
+						'\n con número de identificación ' + result + ', es REQUERIDO.','Consulta');
 					}else {
 						app.f7.alert('Estado del ciudadano: ' + data.nombres + ' ' + data.apellidos +
-						'\n con número de identificación ' + data.identificacion + ', No es requerido.','Consulta');
+						'\n con número de identificación ' + result + ', No es requerido.','Consulta');
 					}
 				}else{
 					app.f7.alert(data.response,'Error');
