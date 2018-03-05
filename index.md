@@ -7,9 +7,7 @@ Este software es desarrollado por:
 
 Desarrollado para el Docente _Carlos Andrés López Ospina._
 
-**Alojado acualmente en: [RegistroCiudadanos](http://ada.resistencia.la:8000)**
-
-Por el momento el repositorio es privado hasta que decidamos liberarlo, todo para evitar mal entendidos o copia.
+**Alojado acualmente en: [RegistroCiudadanos](http://ada.resistencia.la:9000)**
 
 
 
@@ -19,8 +17,10 @@ Por el momento el repositorio es privado hasta que decidamos liberarlo, todo par
 - Primero se instalará el motor de base de datos MySQL, luego python, con este django y las dependencias necesarias.
 * Éste tutorial de instalación se desarrolló para el sistema operativo windows.
 
-### Instalación de MySQL
+### Instalación de MySQL - MariaDB
 - Descargar e instalar WAMP Server [wampserver.com](http://www.wampserver.com/en/) para utilizar el motor de base de datos MySQL y su administrador del motor PHPMySQL.
+* Se aclara que no es la única forma para instalar MySQL o MariaDB, hay otros medios, la expuesta acá solo es una de ellas.
+** El proyecto se puede ejecutar con base de datos SQLite, para ello no necesita instalar ningun motor de bases de datos solo modificar la información de configuración, en la sección base de datos que será expuesta más adelante.
 
 ### Instalación de python
 - Descargar e instalar última version de [python, actualmente 3.6.3](https://www.python.org/downloads/)
@@ -36,7 +36,7 @@ Por el momento el repositorio es privado hasta que decidamos liberarlo, todo par
 ## Clonando y desplegando el proyecto localmente.
 - Debe tener instalado Git, puede descargarlo aca. [Git Downloads](https://git-scm.com/downloads)
 - Luego de las configuraciones iniciales, debe descargar el repositorio.
-- `git clone https://github.com/cizaquita1/ConsultaCiudadano.git`
+- `git clone https://github.com/cizaquita/ConsultaCiudadano.git`
 
 ## Iniciando el proyecto localmente.
 - Ir a la carpeta `reg_ciudadanos` y ejecutar por `cmd` el comando `pip install -R requerimientos.txt` verificar la existencia del archivo `requerimientos.txt`
